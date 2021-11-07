@@ -55,9 +55,7 @@ VALUES ('200010001','rohan'),
 ('200010009','chandler'),
 ('200010010','monica')";
 
-if($conn->query($queryst) == TRUE){
-  echo "Students is created.<br>";
-}
+$conn->query($queryst);
 
 
 $querybooks = "CREATE TABLE Books(
