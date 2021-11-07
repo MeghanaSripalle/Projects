@@ -77,7 +77,7 @@ if ($conn->connect_error) {
 }
 
 if(isset($_POST['add'])){
-    $title = $_POST['booktitle'];
+    $title = ucfirst($_POST['booktitle']);
     $quantity = $_POST['bookquantity'];
     $author= $_POST['bookauthor'];
     $publisher = $_POST['bookpublisher'];
@@ -86,18 +86,23 @@ if(isset($_POST['add'])){
     if(is_string($author) && strlen($author)<=120 && strlen($author)>0 && is_string($publisher) && strlen($publisher)>0 && strlen($publisher)<=120 
     && is_string($title) && strlen($title)<=120 && strlen($title)>0 && is_string($genre) && strlen($genre)<=50 && strlen($genre)>0)
     {
+     $search = "SELECT * FROM Books WHERE Title='$title'";
+    if($conn->query($search)->num_rows>0){
+        echo "<script>alert('Book is already in the inventory.')</script>";
+    }else{
      $query = "INSERT INTO Books (Title,Quantity,Author,Publisher,Genre)
      VALUES ('$title', $quantity,'$author','$publisher','$genre')";
  
         if ($conn->query($query) === TRUE) {
-           echo "<script>alert('New record created successfully!')</script>";
-     }
-    }
-    else{
+           echo "<script>alert('New book added successfully!')</script>";
+     }else{
        echo"<script>alert('There is a data type mismatch or some details haven't been filled.')</script>";
-     }
+    }
+  }
  
+ }
 }
+$conn->close();
 
 
 ?>
