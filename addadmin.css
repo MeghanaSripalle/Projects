@@ -1,0 +1,92 @@
+.container {
+    height: 300px;
+    background-image:url(lib1.jpeg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+ 
+  }
+
+  .welcome {
+      color:white;
+    margin-right:0;
+    position: absolute;
+    top: 5%;
+    -ms-transform: translateY(-50%);
+    transform: translateX(30%);
+
+  }
+  .line{
+    color:white;
+    position: absolute;
+    top:40%;
+    
+    transform: translateX(170%);
+  }
+  .welcome:hover{
+      color: rgb(238, 222, 150);
+  }
+  .menu {
+      height: 50px;
+
+     
+    
+  }
+  nav ul{
+    overflow: hidden;
+    list-style-type: none;
+    background-color: rgb(71, 45, 15);
+  }
+  li.menubar{
+      float: left;
+  }
+  li.logout{
+      float:right;
+  }
+
+  li.logout a{
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  li.menubar a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  li a:hover {
+    background-color: rgb(121, 91, 56);
+    color: rgb(46, 27, 5);
+  }
+  body{
+      background-color:rgb(219, 206, 181) ;
+  }
+
+  li.menubar a.active{
+    background-color: rgb(121, 91, 56);
+    color: rgb(46, 27, 5); 
+  }
+
+  /*common till here*/
+
+  h3{
+    color: rgb(46, 27, 5);    
+  }
+
+  form input{
+    background-color:rgb(66, 43, 22);
+   
+  }
+
+  form{
+      color:rgb(148, 108, 85);
+  }
+  input.details{
+    color:beige;
+  }
