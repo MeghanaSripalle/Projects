@@ -25,7 +25,7 @@ session_start();
         <li class="menubar"><a href="homeadmin.php">Home</a></li>
         <li class="menubar"> <a href="orderadmin.php">View Orders</a></li>
         <li class="menubar"> <a href="fineadmin.php">View Fine</a></li>
-        <li class="menubar"> <a href="viewadmin.php">View</a></li>
+        <li class="menubar"> <a href="viewadmin.php" class="active">View</a></li>
         <li class="menubar"> <a href="updateadmin.php">Update</a></li>
         <li class="menubar"> <a href="deleteadmin.php">Delete</a></li>
         <li class="menubar"><a href="addadmin.php">Add</a></li>   
