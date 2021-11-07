@@ -88,19 +88,19 @@ if(isset($_POST['add'])){
     {
      $search = "SELECT * FROM Books WHERE Title='$title'";
     if($conn->query($search)->num_rows>0){
-        echo "<script>alert('Book is already in the inventory.')</script>";
+        echo "<script>alert('Book is already in the inventory.');</script>";
     }else{
      $query = "INSERT INTO Books (Title,Quantity,Author,Publisher,Genre)
      VALUES ('$title', $quantity,'$author','$publisher','$genre')";
  
         if ($conn->query($query) === TRUE) {
-           echo "<script>alert('New book added successfully!')</script>";
-     }else{
-       echo"<script>alert('There is a data type mismatch or some details haven't been filled.')</script>";
+           echo "<script>alert('New book added successfully!');</script>";
+     }
     }
-  }
- 
- }
+    }
+    else{
+       echo"<script>alert('There is a data type mismatch or some details haven't been filled.');</script>";
+    }
 }
 $conn->close();
 
