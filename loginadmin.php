@@ -48,7 +48,7 @@ if(isset($_POST['submitadmin'])){
     if(($_POST["userad"]) && ($_POST["passad"])){
     $username = test_input($_POST["userad"]);
     $password = test_input($_POST["passad"]);
-    $query2= "SELECT * FROM Admins WHERE Username ='" . $username . "' and Password = '". $password . "'";
+    $query2= "SELECT * FROM Admins WHERE Username ='" . $username . "' and Pass = '". $password . "'";
     $result2 = $conn->query($query2);
     if($result2->num_rows==0) {
       echo "<script>alert('Username or Password is wrong. Please enter again.');</script>";
