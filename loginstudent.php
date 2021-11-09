@@ -45,39 +45,25 @@ if ($conn->connect_error) {
 
 if(isset($_POST['submitstudent'])){
 
-    if (empty($_POST["userst"])) {
-        $useriderror = "Username is required";
-        echo "<script>alert('".$useriderror."');</script>";
+    if(($_POST["userst"]) && ($_POST["passst"])){
+      $userid = test_input($_POST["userst"]);
+      $password = test_input($_POST["passst"]);
+      $query2= "SELECT * FROM Students WHERE UserId ='" . $userid . "' and UserPassword = '". $password . "'";
+      $result2 = $conn->query($query2);
+      if($result2->num_rows==0) {
+        echo "<script>alert('Username or Password is wrong. Please enter again.');</script>";
       } else {
-        $userid = test_input($_POST["userst"]);
-        $query = "SELECT UserId FROM Students WHERE UserId = $userid";
-        $result1 = $conn->query($query);
-        if($result1->num_rows==0 && empty($result1->num_rows)){
-           echo "<script>alert('UserId is wrong. Please enter your UserId again.');</script>";
-           
-        }
-
+        $_SESSION['userid'] = $userid;
+        $_SESSION['password'] = $password;
+        header('Location: homestudent.php');
       }
-  
-      if (empty($_POST["passst"])) {
-          $passworderror = "Password is required";
-          echo "<script>alert('".$passworderror."');</script>";
-        } else {
-        $password = test_input($_POST["passst"]);
-        $query1 = "SELECT UserPassword FROM Students WHERE UserPassword = '$password'";
-        $result = $conn->query($query1);
-        if($result->num_rows == 0 && empty($result->num_rows)){
-           echo "<script>alert('Password is wrong. Please enter your password again.');</script>";
-           
-        }
-        else if($result->num_rows==1 && $result1->num_rows==1){
-            $_SESSION['userid'] = $userid;
-            $_SESSION['password'] = $password;
-            header('Location: homestudent.php');
-        }
-    }
+      }
+      else {
+      echo "<script>alert('Enter both the fields provided');</script>";
+      }
 
 }
+
 
 $conn->close();
 ?>
