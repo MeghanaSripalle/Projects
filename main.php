@@ -1,3 +1,4 @@
+
 <?php
 $servername = "localhost";
 $username = "root";
@@ -179,12 +180,12 @@ $conn->query($querybook);
 $queryorders = "CREATE TABLE Orders(
   BookId int(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
   Title varchar(120) UNIQUE,
-  Quantity int(6) ,
   Author varchar(120) NOT NULL,
   Publisher varchar(120) NOT NULL,
   Genre varchar(50),
   Customer int(9) UNIQUE NOT NULL,
-  Duedate DATE
+  Duedate DATE,
+  Fine int(6)
 )";
 
 $conn->query($queryorders);
